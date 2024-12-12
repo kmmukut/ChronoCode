@@ -1,5 +1,5 @@
 {
-  "manifest_version": 1.0,
+  "manifest_version": 3,
   "name": "ChronoCode: TOTP Generator",
   "version": "1.0",
   "description": "Generate TOTP codes and copy them to clipboard.",
