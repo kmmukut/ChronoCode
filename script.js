@@ -23,6 +23,21 @@ document.getElementById('generateBtn').addEventListener('click', () => {
     startTOTPUpdate(key);
 });
 
+// Event listener for "Copy" button
+document.getElementById('copyBtn').addEventListener('click', async () => {
+    const totpDisplay = document.getElementById('totpDisplay').textContent;
+    if (!totpDisplay || totpDisplay === "TOTP will appear here") {
+        alert('No TOTP available to copy.');
+        return;
+    }
+    try {
+        await navigator.clipboard.writeText(totpDisplay);
+    } catch (error) {
+        console.error('Failed to copy TOTP:', error);
+        alert('Copy failed. Please try manually.');
+    }
+});
+
 let totpInterval;
 let countdownInterval;
 
@@ -39,6 +54,9 @@ function startTOTPUpdate(secretKey) {
         // Generate and display the TOTP
         const totp = await generateTOTP(secretKey);
         document.getElementById('totpDisplay').textContent = totp;
+
+        // Show the Copy button
+        document.getElementById('copyBtn').style.display = 'block';
 
         // Reset circular progress bar
         const offset = (1 - remainingTime / 30) * circumference;
@@ -80,8 +98,11 @@ async function generateTOTP(secretKeyBase32) {
                        ((hmac[offset + 1] & 0xff) << 16) |
                        ((hmac[offset + 2] & 0xff) << 8) |
                        (hmac[offset + 3] & 0xff);
-    const totp = binaryCode % 1000000;
-    return totp.toString().padStart(6, '0');
+    const totp = (binaryCode % 1000000).toString().padStart(6, '0');
+
+    // Show the Copy button and set the TOTP text
+    document.getElementById('copyBtn').style.display = 'block';
+    return totp;
 }
 
 async function generateHMAC(secretKey, timeStep) {

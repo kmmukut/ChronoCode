@@ -80,6 +80,12 @@ body {
     color: #457b9d;
 }
 
+/* Center the "Copy" button */
+#copyBtn {
+    margin: 10px auto;
+    display: block; /* Ensures the button respects centering rules */
+}
+
 .progress-container {
     position: relative;
     width: 100px;
