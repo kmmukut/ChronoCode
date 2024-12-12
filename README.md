@@ -9,3 +9,4 @@ A simple browser extension to generate TOTP codes for 2FA.
 
 ## Author
 Created by **Khaled Mosharraf Mukut**. Feel free to reach out with questions or feedback!
+
