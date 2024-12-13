@@ -1,9 +1,9 @@
 {
   "manifest_version": 3,
   "name": "ChronoCode: TOTP Generator",
-  "version": "1.0",
+  "version": "1.11",
   "description": "Generate TOTP codes and copy them to clipboard.",
-  "author": "Your Name",
+  "author": "Khaled Mosharraf Mukut",
   "permissions": ["clipboardRead"],
   "action": {
     "default_popup": "popup.html",

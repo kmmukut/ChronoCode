@@ -69,12 +69,17 @@ function startTOTPUpdate(secretKey) {
 }
 
 document.getElementById('generateBtn').addEventListener('click', () => {
-    const key = document.getElementById('keyInput').value.trim();
+    const key = document.getElementById('keyInput').value.trim().replace(/\s+/g, ''); // Remove spaces
     if (!key) {
         alert('Please enter a valid Base32-encoded key.');
         return;
     }
-    startTOTPUpdate(key);
+    try {
+        startTOTPUpdate(key);
+    } catch (error) {
+        console.error('Error generating TOTP:', error);
+        alert('Invalid Base32-encoded key. Please check your input.');
+    }
 });
 
 async function generateTOTP(secretKeyBase32) {
@@ -109,8 +114,7 @@ async function generateHMAC(secretKey, timeStep) {
 
 function base32Decode(base32) {
     const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ234567';
-    const padding = '=';
-    const normalizedBase32 = base32.toUpperCase().replace(new RegExp(padding, 'g'), '');
+    const normalizedBase32 = base32.toUpperCase().replace(/=+$/, ''); // Remove padding if present
     const bits = [];
     for (const char of normalizedBase32) {
         const val = alphabet.indexOf(char);
