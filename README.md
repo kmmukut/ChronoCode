@@ -99,7 +99,7 @@ For quick and convenient OTP generation, ChronoCode is also available as a brows
   [Get ChronoCode on Firefox Add-ons](https://addons.mozilla.org/en-US/firefox/addon/chronocode/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search)
 
 - **Chromium-Based Browsers** (e.g., Chrome, Edge, Brave, Opera):  
-  [Get ChronoCode on Chrome Web Store](https://chromewebstore.google.com/detail/mmjimeoahbfhkkdceblagacfgffebbdd/preview?hl=en&authuser=1&pli=1)
+  [Get ChronoCode on Chrome Web Store]([https://chromewebstore.google.com/detail/mmjimeoahbfhkkdceblagacfgffebbdd/preview?hl=en&authuser=1&pli=1](https://chromewebstore.google.com/detail/chronocode-totp-generator/mmjimeoahbfhkkdceblagacfgffebbdd?hl=en&authuser=1))
 
 #### Features of the Browser Extension:
 - 🚀 **Quick Access**: Generate OTPs directly from your browser toolbar.
